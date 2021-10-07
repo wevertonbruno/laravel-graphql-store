@@ -1,0 +1,22 @@
+type Book {
+    id: ID!
+    title: String!
+    author: String!
+    image: String
+    description: String
+    link: String
+    featured: Boolean
+    category: Category! @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input BookInput {
+    title: String! @rules(apply: ["required"])
+    author: String! @rules(apply: ["required"])
+    image: String
+    description: String
+    link: String
+    featured: Boolean
+    category_id: Int! @rules(apply: ["required"])
+}

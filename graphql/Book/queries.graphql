@@ -1,0 +1,6 @@
+extend type Query {
+    books: [Book!] @all
+    book(id: ID! @eq): Book @find
+    booksByFeature(featured: Boolean! @eq): [Book!] @all
+    booksByTitle(title: String!): [Book!]
+}

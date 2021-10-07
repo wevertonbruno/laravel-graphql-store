@@ -1,0 +1,7 @@
+type Category {
+    id: ID!
+    name: String!
+    books: [Book] @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}

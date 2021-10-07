@@ -1,0 +1,13 @@
+extend type Mutation {
+    createCategory(
+        name: String! @rules(apply: ["required", "unique:categories,name"])
+    ): Category @create(model: "App\\Models\\Category")
+
+    updateCategory(
+        id: ID! @rules(apply: ["required"])
+        name: String! @rules(apply: ["required", "unique:categories,name"])
+    ): Category @update(model: "App\\Models\\Category")
+
+    deleteCategory(id: ID! @rules(apply: ["required"])): Category
+        @delete(model: "App\\Models\\Category")
+}

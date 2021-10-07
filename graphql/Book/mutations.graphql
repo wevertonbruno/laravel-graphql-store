@@ -1,0 +1,12 @@
+extend type Mutation {
+    createBook(data: BookInput! @spread): Book
+        @create(model: "App\\Models\\Book")
+
+    updateBook(
+        id: ID! @rules(apply: ["required"])
+        data: BookInput! @spread
+    ): Book @update(model: "App\\Models\\Book")
+
+    deleteBook(id: ID! @rules(apply: ["required"])): Book
+        @delete(model: "App\\Models\\Book")
+}
